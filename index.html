@@ -1,55 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio</title>
-  <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Interactive Page</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            transition: background 0.3s ease;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(45deg, #00bcd4, #00838f);
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(45deg, #00838f, #00bcd4);
+        }
+
+        .content {
+            max-width: 600px;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-  <!-- Navbar -->
-  <nav class="navbar">
-    <div class="logo">
-      <a href="#home">Portfolio</a>
-    </div>
-    <ul class="nav-links">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#contact">Contact</a></li>
-      <li><a href="#">|</a></li>
-      <li><a href="/resume.pdf" class="btn">Download Resume</a></li>
-    </ul>
-    <div class="hamburger" id="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-  </nav>
 
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-left">
-      <img src="Profile.jpg" alt="Profile Picture">
+    <div id="mainContent" class="content">
+        <h1>Welcome!</h1>
+        <p>This is the starting page of the interactive portfolio.</p>
+        <button class="btn" onclick="showNewContent()">Go to New Page</button>
     </div>
-    <div class="hero-right">
-      <h2>Hello, I’m  </h2>
-      <h1>Niharika Verma</h1>
-      <h3>🌐 Full Stack Developer | 💻 Programmer</h3>
-      <p>
-        Passionate about building modern web applications with clean UI & smooth user experience.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn primary">View Work</a>
-        <a href="#contact" class="btn secondary">Contact Me</a>
-      </div>
-    </div>
-  </section>
 
-  <!-- Stats Section -->
-  <section class="stats">
-  
-  </section>
+    <script>
+        function showNewContent() {
+            const container = document.getElementById("mainContent");
+            container.innerHTML = `
+                <h1>New Page</h1>
+                <p>This is the new content displayed dynamically. You can add information about projects, experience, or anything else!</p>
+                <button class="btn" onclick="goBack()">Go Back</button>
+            `;
+        }
+
+        function goBack() {
+            const container = document.getElementById("mainContent");
+            container.innerHTML = `
+                <h1>Welcome!</h1>
+                <p>This is the starting page of the interactive portfolio.</p>
+                <button class="btn" onclick="showNewContent()">Go to New Page</button>
+            `;
+        }
+    </script>
+
 </body>
 </html>
