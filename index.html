@@ -4,10 +4,230 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Divyansh Singh</title>
-    <link rel="stylesheet" href="style.css" />
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+    <style>
+        /* Color Palette */
+        :root {
+            --ash-gray: #CAD2C5;
+            --leaf: #84A98C;
+            --cutty-sark: #52796F;
+            --limed-spruce: #354F52;
+            --gunmetal: #2F3E46;
+        }
+
+        /* Global Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Montserrat", sans-serif;
+        }
+
+        body {
+            background-color: var( --limed-spruce);
+            color: var(--ash-gray);
+            line-height: 1.6;
+        }
+
+        /* Navbar */
+        .navbar {
+            position: sticky;
+            top: 0;
+            background: var(--gunmetal);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 10px 8px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+            font-size: 1.2 rem;
+        }
+
+        .navbar .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li a {
+            color: var(--ash-gray);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links li a:hover {
+            color: var(--leaf);
+        }
+
+        .btn {
+            background: var(--gunmetal);
+            color: var(--ash-gray);
+            padding: 8px 16px;
+            border-radius: 7px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--cutty-sark);
+        }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            gap: 5px;
+        }
+
+        .hamburger span {
+            height: 3px;
+            width: 25px;
+            background: var(--ash-gray);
+        }
+        /* Hero Section */
+        .hero-section {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 20px;
+            background: var(--gunmetal);
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-photo {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid var(--ash-gray);
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-photo:hover {
+            transform: scale(1.05);
+        }
+
+        .hero-content h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1px;
+        }
+
+        .intro-text {
+            font-size: 1.1rem;
+            color: var(--ash-gray);
+            max-width: 500px;
+            animation: slideUp 1s ease forwards;
+        }
+
+        .btn {
+            background: var(--leaf);
+            color: var(--gunmetal);
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: var(--cutty-sark);
+            transform: translateY(-3px);
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+
+        /* About Section */
+        .about-section {
+    background-color: var(--gunmetal);
+    padding: 40px 20px;
+    border-radius: 8px;
+    max-width: 1450px;
+    margin: 80px auto 40px auto;  /* Increased top margin from 40px to 80px */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+        .about-section h2 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+
+        .about-section p {
+            font-size: 1rem;
+            text-align: justify;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gunmetal);
+            padding: 20px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                gap: 10px;
+                background: var(--gunmetal);
+                position: absolute;
+                right: 20px;
+                top: 60px;
+                padding: 10px;
+                border-radius: 4px;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: flex;
+            }
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            .hero-content p {
+                font-size: 1rem;
+            }
+            .about-section {
+                margin: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -19,7 +239,7 @@
             <li><a href="index.html#about">About</a></li>
             <li><a href="skill-portfolio.html">Skills</a></li>
             <li><a href="skill-portfolio.html">Projects</a></li>
-            <li><a href="resume.pdf" class="btn">Resume</a></li>
+            <li><a href="Divyansh_Singh_Resume.pdf" class="btn" download="Divyansh_Singh_Resume.pdf">Resume</a></li>
         </ul>
         <div class="hamburger" id="hamburger">
             <span></span>
@@ -28,20 +248,22 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="hero-section">
-        <div class="hero-content">
-            <img src="Profile.jpg" alt="Profile Picture" class="profile-photo" />
-            <h1>Divyansh Singh</h1>
-            <p>Web Developer | Software Tester</p>
-            <a href="skill-portfolio.html" class="btn">Contact Me</a>
-        </div>
-    </section>
+   <!-- Hero Section -->
+   <section id="home" class="hero-section">
+    <div class="hero-content">
+        <img src="Profile.jpg" alt="Profile Picture" class="profile-photo" />
+        <h1>Divyansh Singh</h1>
+        <p class="intro-text">Web Developer | Software Tester</p>
+        <p class="intro-text">Crafting solutions through code. Passionate about technology, innovation, and growth.</p>
+        <a href="skill-portfolio.html" class="btn">Contact Me</a>
+    </div>
+</section>
 
     <!-- About Section -->
     <section id="about" class="about-section">
         <h2>About Me</h2>
-        <p>I am a passionate software engineer with experience in building modern, responsive web applications. My expertise spans across frontend and backend development using the latest technologies. I enjoy solving problems and creating efficient solutions that help users and businesses thrive.</p>
+        <p>My name is Divyansh Singh, and I am currently pursuing a Bachelor’s degree in Computer Applications from Amity University.</p>
+           <p>I have previously worked as a Software Engineer at HCL Technologies, where I gained valuable experience in software development. I am passionate about technology, programming, and problem-solving, and I continuously strive to enhance my skills. I enjoy working on projects that challenge me and help me grow professionally. I am eager to contribute to meaningful work and expand my knowledge in the field of software development.</p>
     </section>
 
     <!-- Footer -->
@@ -49,7 +271,14 @@
         <p>Contact: divyanshsinghclass11@gmail.com | +91 9559790727</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Simple script to toggle navbar on mobile
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+    </script>
+
 </body>
 </html>
-
